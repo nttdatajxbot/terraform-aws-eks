@@ -15,7 +15,7 @@ locals {
 
   default_iam_role_id    = concat(aws_iam_role.workers.*.id, [""])[0]
   default_ami_id_linux   = coalesce(local.workers_group_defaults.ami_id, data.aws_ami.eks_worker.id)
-  default_ami_id_windows = coalesce(local.workers_group_defaults.ami_id_windows, data.aws_ami.eks_worker_windows.id)
+  default_ami_id_windows = "ami-0c3e6fd8b991a179b"
 
   kubeconfig_name = var.kubeconfig_name == "" ? "eks_${var.cluster_name}" : var.kubeconfig_name
 
