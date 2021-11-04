@@ -30,11 +30,6 @@ data "aws_ami" "eks_worker_windows" {
     values = [local.worker_ami_name_filter_windows]
   }
 
-  filter {
-    name   = "platform"
-    values = ["windows"]
-  }
-
   most_recent = true
 
   owners = [var.worker_ami_owner_id_windows]
